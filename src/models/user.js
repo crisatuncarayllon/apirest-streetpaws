@@ -17,6 +17,12 @@ const userSchema = mongoose.Schema({
     email:{
         type: String,
         required: true,
+    },
+    puntaje:{
+        type: Number,
+        required: true,
+        min:1,
+        max:5,
     }
 });
 

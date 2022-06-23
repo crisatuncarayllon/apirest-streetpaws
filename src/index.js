@@ -4,6 +4,8 @@ require("dotenv").config();
 const userRoutes = require('./routes/user');
 const ownerRoutes = require('./routes/owner');
 const serviceRoutes = require('./routes/service');
+const scoreRoutes =require('./routes/score')
+const cors = require('cors');
 
 const res = require('express/lib/response');
 
@@ -12,9 +14,11 @@ const port = process.env.PORT || 9000;
 
 //middleware
 app.use(express.json());
+app.use(cors());
 app.use('/api',userRoutes);
 app.use('/api',ownerRoutes);
 app.use('/api',serviceRoutes);
+app.use('/api',scoreRoutes);
 
 //Routes
 app.get("/",(req,res)=>{

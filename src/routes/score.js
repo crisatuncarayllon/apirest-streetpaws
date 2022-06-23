@@ -1,48 +1,48 @@
 const express = require('express');
-const userSchema = require('../models/user');
+const scoreSchema = require('../models/score');
 
 const router = express.Router();
 
-//Create user
-router.post('/users',(req, res)=>{
-    const user = userSchema(req.body);
-    user
+//Create a score
+router.post('/scores',(req, res)=>{
+    const score = scoreSchema(req.body);
+    score
     .save()
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}));
 });
 
-//Get all users
-router.get('/users',(req, res)=>{
-    userSchema
+//Get all scores
+router.get('/scores',(req, res)=>{
+    scoreSchema
     .find()
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}));
 });
 
-//Get a user by id
-router.get('/users/:id',(req, res)=>{
+//Get a score by id
+router.get('/scores/:id',(req, res)=>{
     const { id } = req.params;
-    userSchema
+    scoreSchema
     .findById(id)
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}));
 });
 
-//update a user by id
-router.put('/users/:id',(req, res)=>{
+//update a score by id
+router.put('/scores/:id',(req, res)=>{
     const { id } = req.params;
-    const { name, dni, address, email, puntaje } = req.body;
-    userSchema
-    .updateOne({_id: id}, { $set: {name, dni, address, email, puntaje} })
+    const { id_dogwalker, id_owner, score, comment } = req.body;
+    scoreSchema
+    .updateOne({_id: id}, { $set: { id_dogwalker, id_owner, score, comment } })
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}));
 });
 
-//Delete a user by id
-router.delete('/users/:id',(req, res)=>{
+//Delete a score by id
+router.delete('/scores/:id',(req, res)=>{
     const { id } = req.params;
-    userSchema
+    scoreSchema
     .remove({_id: id})
     .then((data)=>res.json(data))
     .catch((error)=>res.json({message:error}));
