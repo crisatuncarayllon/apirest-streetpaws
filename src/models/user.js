@@ -23,7 +23,12 @@ const userSchema = mongoose.Schema({
         required: true,
         min:1,
         max:5,
+    },
+    status:{
+        type: Boolean,
+        required: true,
     }
 });
+//Si ya paso el servicio quedaria en false o sea que esta desactivado o que ya esta disponible.
 
 module.exports = mongoose.model('dogWalker',userSchema);

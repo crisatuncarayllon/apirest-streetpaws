@@ -31,7 +31,13 @@ const ownerSchema = mongoose.Schema({
     email:{
         type: String,
         required: true,
+    },
+    status:{
+        type: Boolean,
+        required: true,
     }
 });
+
+//Si ya paso el servicio quedaria en false o sea que esta desactivado o que ya esta disponible.
 
 module.exports = mongoose.model('owner',ownerSchema);

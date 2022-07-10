@@ -5,6 +5,7 @@ const userRoutes = require('./routes/user');
 const ownerRoutes = require('./routes/owner');
 const serviceRoutes = require('./routes/service');
 const scoreRoutes =require('./routes/score')
+const transactionRoutes = require('./routes/transaction')
 const cors = require('cors');
 
 const res = require('express/lib/response');
@@ -19,6 +20,7 @@ app.use('/api',userRoutes);
 app.use('/api',ownerRoutes);
 app.use('/api',serviceRoutes);
 app.use('/api',scoreRoutes);
+app.use('/api',transactionRoutes);
 
 //Routes
 app.get("/",(req,res)=>{

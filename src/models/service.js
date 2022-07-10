@@ -15,4 +15,6 @@ const serviceSchema = mongoose.Schema({
     },
 });
 
+//Si ya paso el servicio quedaria en false o sea que esta desactivado o que el servicio ya se hizo, solo cuando este en true significa que se esta realizando el servicio
+
 module.exports = mongoose.model('service',serviceSchema);
