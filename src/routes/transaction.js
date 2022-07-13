@@ -1,7 +1,6 @@
 const express = require('express');
 const ownerSchema = require('../models/owner');
 const userSchema = require('../models/user');
-const scoreSchema = require('../models/score');
 const serviceSchema = require('../models/service');
 const mongoose = require('mongoose');
 

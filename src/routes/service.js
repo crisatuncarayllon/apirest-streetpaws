@@ -29,8 +29,15 @@ router.get('/services/:id',(req, res)=>{
     .catch((error)=>res.json({message:error}));
 });
 
-//update an owner by id
-
+//update a service by id
+router.put('/services/:id',(req, res)=>{
+    const { id } = req.params;
+    const { id_dogwalker, id_dog, estado } = req.body;
+    serviceSchema
+    .updateOne({_id: id}, { $set: { id_dogwalker, id_dog, estado } })
+    .then((data)=>res.json(data))
+    .catch((error)=>res.json({message:error}));
+});
 
 //Delete a service by id
 router.delete('/services/:id',(req, res)=>{
