@@ -51,8 +51,8 @@ router.get('/users',(req, res)=>{
 router.get('/users/:id', async(req, res)=>{
     try {
         const { id } = req.params;
-        const user = await userSchema.findById(id);
-        res.status(200).json(user);
+        const aUser = await userSchema.findById(id);
+        res.status(200).json(aUser);
     } catch (error) {
         res.json({message:error});
     }

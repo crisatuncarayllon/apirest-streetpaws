@@ -28,8 +28,8 @@ router.get('/services',async(req, res)=>{
 router.get('/services/:id',async(req, res)=>{
     try {
         const { id } = req.params;
-        const service = await serviceSchema.findById(id);
-        res.status(200).json(service);
+        const aService = await serviceSchema.findById(id);
+        res.status(200).json(aService);
     } catch (error) {
         res.json({message:error});
     }

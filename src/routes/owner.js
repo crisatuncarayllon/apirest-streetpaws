@@ -28,8 +28,8 @@ router.get('/owners',async(req, res)=>{
 router.get('/owners/:id',async(req, res)=>{
     try {
         const { id } = req.params;
-        const owner = await ownerSchema.findById(id);
-        res.status(200).json(owner);
+        const anOwner = await ownerSchema.findById(id);
+        res.status(200).json(anOwner);
     } catch (error) {
         res.json({message:error});
     }
