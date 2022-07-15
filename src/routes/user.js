@@ -75,7 +75,7 @@ router.put('/users/:id', async(req, res)=>{
         const { id } = req.params;
         const { name, dni, address, email, status, puntaje } = req.body;
         const userUpdate = await userSchema.updateOne({_id: id}, { $set: {name, dni, address, email,status ,puntaje} });
-        res.json(userUpdate);
+        res.status(200).json(userUpdate);
     } catch (error) {
         res.json({message:error});
     }
