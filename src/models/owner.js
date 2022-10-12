@@ -35,10 +35,6 @@ const ownerSchema = mongoose.Schema({
     status:{
         type: Boolean,
         required: true,
-    },
-    password : {
-        type : String,
-        required : true
     }
 });
 
