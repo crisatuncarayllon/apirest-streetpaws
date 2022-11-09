@@ -26,7 +26,7 @@ const ownerSchema = mongoose.Schema({
     },
     dogs:{
         type: [dogSchema],
-        required: true,
+        required: false,
     },
     email:{
         type: String,
@@ -34,7 +34,7 @@ const ownerSchema = mongoose.Schema({
     },
     status:{
         type: Boolean,
-        required: true,
+        required: false,
     },
     password : {
         type : String,
