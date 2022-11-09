@@ -80,14 +80,18 @@ router.post('/registro',async function(req,res){
             bcrypt.hash(data.password,saltRounds,async function(err,hash){
                 if(hash){
                     //console.log(hash);
-                    data.password = hash;
-                    // const usuario = {
-                    //     email   : email,
-                    //     password : password
-                    // }
+                    //data.password = hash;
+                    //data.name=name;
+                     const usuario = {
+                         name: data.name,
+                         dni: data.dni,
+                         address: data.address,
+                         email   : data.email,
+                         password : hash
+                     }
                     //creamos el usuario con el password encriptado
-                    var reg = await ownerSchema.create(data);
-                    res.status(200).json({data:reg});
+                    var reg = await ownerSchema.create(usuario);
+                    res.status(200).json({usuario:reg});
                 }else{
                     res.status(200).json({message:error});
                 }
@@ -119,6 +123,7 @@ router.post('/login',async function(req,res) {
         bcrypt.compare(data.password,user.password,async function(error,check){
             if(check){
                 res.status(200).json({data:user, token: jwt.createToken(user)});
+                
             }else{
                 res.status(200).send({message:'La contraseña no concide',data:undefined});
             }
